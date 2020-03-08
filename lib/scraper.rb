@@ -17,7 +17,11 @@ doc = Nokogiri::HTML(open(index_url))
 def self.scrape_profile_page(profile_slug)
   profdoc = Nokogiri::HTML(open(profile_slug))
     student = {}
+<<<<<<< HEAD
       binding.pry social = profdoc.css('div.social-icon-container a' binding.pry {|i|i['href']})
+=======
+      social = profdoc.search('div.social-icon-container a'.map {|i|i['href']})
+>>>>>>> 1acb18b1c907805c490d4354f39f502f03d3a9d8
 	        twit = social.select {|a| student[:twitter] = a unless !a.to_s.include?('twitter')} 
 	        linked = social.select {|a| student[:linkedin] = a unless !a.to_s.include?('linkedin')}
 	        github = social.select {|a| student[:github] = a unless !a.to_s.include?('github')}
